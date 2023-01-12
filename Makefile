@@ -15,4 +15,4 @@ $(TEST).exe : $(TEST).c $(SRC).o
 	$(GCC) -Wall -L$(CUNIT)Sources/.libs -I$(CUNIT)Headers -o $(TEST) $(TEST).c $(SRC).o -lcunit
 
 clean :
-	rm -f *.o *.exe *.xml
+	rm -f *.o *.exe *.xml  
