@@ -9,7 +9,6 @@
 #include "Automated.h"
 //#include "CUnit/Console.h"
 
-#include "controleur_rover.h"
 
 #include <stdio.h>  // for printf
 
