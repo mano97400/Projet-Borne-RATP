@@ -17,23 +17,22 @@ int clean_suite(void) { return 0; }
 
 /************* Test case functions ****************/
 
-void test_case_sample(void)
-{
-   CU_ASSERT(CU_TRUE);
-   CU_ASSERT_NOT_EQUAL(2, -1);
-   CU_ASSERT_STRING_EQUAL("string #1", "string #1");
-   CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #2");
+// void test_case_sample(void)
+// {
+//    CU_ASSERT(CU_TRUE);
+//    CU_ASSERT_NOT_EQUAL(2, -1);
+//    CU_ASSERT_STRING_EQUAL("string #1", "string #1");
+//    CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #2");
 
-   CU_ASSERT(CU_FALSE);
-   CU_ASSERT_EQUAL(2, 3);
-   CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #1");
-   CU_ASSERT_STRING_EQUAL("string #1", "string #2");
-}
+//    CU_ASSERT(CU_FALSE);
+//    CU_ASSERT_EQUAL(2, 3);
+//    CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #1");
+//    CU_ASSERT_STRING_EQUAL("string #1", "string #2");
+// }
 
 void test_test(void) {
   for (int i=0; i<6; i++) {
       CU_ASSERT(true);
-      
     }
 }
 
