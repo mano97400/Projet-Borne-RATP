@@ -7,8 +7,6 @@
 #include <unistd.h>
 
 #include "Automated.h"
-//#include "CUnit/Console.h"
-
 
 #include <stdio.h>  // for printf
 
