@@ -33,6 +33,7 @@ void test_case_sample(void)
 void test_test(void) {
   for (int i=0; i<6; i++) {
       CU_ASSERT(true);
+      
     }
 }
 
