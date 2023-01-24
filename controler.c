@@ -22,6 +22,17 @@ typedef struct Boutons{
     bool bouton_2;
 } Boutons;
 
+/*
+
+    Controler's state
+
+*/
+
+typedef struct State{
+    int phase;
+    int step;
+    int substep;
+} State;
 
 /*
 
@@ -36,6 +47,7 @@ typedef struct Input{
     Boutons boutons;
     bool ctr;
     int amount;
+    State state;
 
 
 }Input;
@@ -51,6 +63,7 @@ typedef struct Output{
     int money_back;
     bool receip;
     bool ctr_transaction;
+    State state;
 
 }Output;
 
@@ -80,6 +93,13 @@ Boutons init_boutons(){
     return boutons;
 }
 
+State init_state(){
+    State state;
+    state.phase = 1;
+    state.step = 1;
+    state.substep = 0;
+}
+
 Input init_input(){
     Input input;
     input.amount = 0;
@@ -87,8 +107,8 @@ Input init_input(){
     input.ctr = false;
     input.key_board = -1;
     input.tpe = WAITING;
+    input.state = init_state();
     return input;
-    
 }
 
 
