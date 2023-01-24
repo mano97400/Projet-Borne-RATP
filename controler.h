@@ -30,11 +30,9 @@ typedef struct Boutons{
 */
 
 typedef struct State{
-
     int phase;
     int etape;
     int montant_tot;
-
 }State;
 
 /*
@@ -44,15 +42,12 @@ typedef struct State{
 */
 
 typedef struct Input{
-
     TPE tpe;
     int kbd_num;
     Boutons boutons;
     bool ctr_sup;
     int esp_in;
     State state;
-
-
 }Input;
 
 /*
@@ -62,12 +57,18 @@ typedef struct Input{
 */
 
 typedef struct Output{
-
     int esp_out;
     bool recu;
     bool ctr_rch;
     State state;
-
 }Output;
+
+#define MONTANT_SUB_1 1990
+#define MONTANT_SUB_2 7490
+
+Boutons init_boutons();
+State init_state();
+Input init_input();
+Output init_output();
 
 #endif
