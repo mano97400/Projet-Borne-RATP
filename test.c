@@ -9,7 +9,7 @@
 #include "Automated.h"
 
 #include <stdio.h>  // for printf
-
+#include "controler.h"
 
 
 /* Test Suite setup and cleanup functions: */
@@ -41,13 +41,114 @@ void test_test(void) {
 }
 
 
+Input input;
 
+
+int init_suite_phase1() {
+   input = init_input();
+   input.state.phase = 1;
+   return 0;
+}
+
+int test_phase1_etape1() {
+   input.state.etape = 1;
+   Output output;
+
+   input.ctr_sup = false;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+   input.ctr_sup = true;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+}
+
+int init_suite_phase2() {
+   input = init_input();
+   input.state.phase = 2;
+   return 0;
+}
+
+int test_phase2_etape1() {
+   input.state.etape = 1;
+   Output output;
+
+
+   input.boutons.but_ann = true;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 4);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_ann = false;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+
+   
+   input.boutons.but_1 = true;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 2);
+   CU_ASSERT(output.state.etape == 2);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_1 = false;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+
+   
+   input.boutons.but_2 = true;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 2);
+   CU_ASSERT(output.state.etape == 3);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_2 = false;
+   output = controler();
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+}
 
 /************* Test Runner Code goes here **************/
 
 int main ( void )
 {
    CU_pSuite pSuite = NULL;
+   CU_pTest pTest = NULL;
 
    /* initialize the CUnit test registry */
    if ( CUE_SUCCESS != CU_initialize_registry() )
@@ -60,6 +161,29 @@ int main ( void )
       return CU_get_error();
    }
 
+   pSuite = CU_add_suite( "phase1", init_suite_phase1, clean_suite );
+   if ( NULL == pSuite ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+
+   pTest = CU_add_test(pSuite, "phase1 etape1", test_phase1_etape1 );
+   if (NULL == pTest) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+
+   pSuite = CU_add_suite( "phase2", init_suite_phase2, clean_suite );
+   if ( NULL == pSuite ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+
+   pTest = CU_add_test(pSuite, "phase2 etape1", test_phase2_etape1 );
+   if (NULL == pTest) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
 
 
    // Run all tests using the basic interface
