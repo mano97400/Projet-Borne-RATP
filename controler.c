@@ -32,6 +32,8 @@ typedef struct State{
     int phase;
     int step;
     int substep;
+
+    int orderAmount;
 } State;
 
 /*
@@ -46,7 +48,7 @@ typedef struct Input{
     int key_board;
     Boutons boutons;
     bool ctr;
-    int amount;
+    int insertedMoney;
     State state;
 
 
@@ -73,8 +75,24 @@ typedef struct Output{
     Controler's implementation
 
 */
+
+Output controler_phase1(Input input) {
+    Output output;
+    switch (input.state.step) {
+        case 1 :
+            //initialize the output;
+            break;
+    }
+    return output;
+}
+
 Output controler(Input input){
     Output output;
+    switch (input.state.phase) {
+        case 1 : 
+            output = controler_phase1(input); 
+            break;
+    }
     return output;
 }
 
@@ -98,11 +116,12 @@ State init_state(){
     state.phase = 1;
     state.step = 1;
     state.substep = 0;
+    state.orderAmount;
 }
 
 Input init_input(){
     Input input;
-    input.amount = 0;
+    input.insertedMoney = 0;
     input.boutons = init_boutons();
     input.ctr = false;
     input.key_board = -1;
