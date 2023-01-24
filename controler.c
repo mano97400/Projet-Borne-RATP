@@ -80,7 +80,12 @@ Output controler_phase1(Input input) {
     Output output;
     switch (input.state.step) {
         case 1 :
-            //initialize the output;
+            output.money_back = 0;
+            output.receip = false;
+            output.ctr_transaction = false;
+            output.state.phase = 1;
+            output.state.step = 2;
+            output.state.substep = 0;
             break;
     }
     return output;
