@@ -72,6 +72,7 @@ int init_suite_phase4() {
 //     }
 // }
 
+
 void test_phase1_etape1() {
    input.state.etape = 1;
    Output output;
