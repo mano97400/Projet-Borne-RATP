@@ -2,12 +2,30 @@
 
 
 
-
 /*
 
     Controler's implementation
 
 */
+
+Output controler(Input input){
+    Output output;
+    switch (input.state.phase) {
+        case 1 : 
+            output = controler_phase1(input); 
+            break;
+        case 2 : 
+            output = controler_phase2(input); 
+            break;
+        case 3 : 
+            output = controler_phase3(input); 
+            break;
+        case 4 : 
+            output = controler_phase4(input); 
+            break;
+    }
+    return output;
+}
 
 Output controler_phase1(Input input) {
     Output output = init_output();
@@ -68,18 +86,38 @@ Output controler_phase2(Input input) {
     return output;
 }
 
-Output controler(Input input){
-    Output output;
-    switch (input.state.phase) {
+Output controler_phase3(Input input) {
+    Output output = init_output();
+    switch (input.state.etape) {
         case 1 : 
-            output = controler_phase1(input); 
+            //TODO
             break;
-        case 2 : 
-            output = controler_phase2(input); 
+        case 2 :
+            //TODO
+            break;
+        case 3 : 
+            //TODO
+            break;
+        case 4 : 
+            //TODO
             break;
     }
     return output;
 }
+
+Output controler_phase4(Input input) {
+    Output output = init_output();
+    output.state = input.state;
+    switch (input.state.etape) {
+        case 1 : 
+            //TODO
+            break;
+    }
+    return output;
+}
+
+
+
 
 /*
 
@@ -125,12 +163,8 @@ Output init_output(){
 
 
 
-void main(){
-
-    Input input = init_input();
-    Output output;
-
-    output = controler(input);
-
-
-}
+// void main(){
+//     Input input = init_input();
+//     Output output;
+//     output = controler(input);
+// }

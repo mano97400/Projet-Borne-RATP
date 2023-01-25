@@ -1,7 +1,15 @@
+# gcc executable path
 GCC= C:/MinGW/bin/gcc
+
+# CUnit repository path
 CUNIT = C:/CUnit-2.1-3/CUnit/
-SRC= controller
-TEST= controller_test
+
+# C filename
+SRC= controler
+
+# CUnit test filename
+TEST= test
+
 
 
 CUnitAutomated-Results.xml : $(TEST).exe

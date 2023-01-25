@@ -12,10 +12,44 @@
 #include "controler.h"
 
 
+
+/* Global variables used in the tests */
+
+Input input;
+
+
+
 /* Test Suite setup and cleanup functions: */
 
 int init_suite(void) { return 0; }
+
 int clean_suite(void) { return 0; }
+
+int init_suite_phase1() {
+   input = init_input();
+   input.state.phase = 1;
+   return 0;
+}
+
+int init_suite_phase2() {
+   input = init_input();
+   input.state.phase = 2;
+   return 0;
+}
+
+int init_suite_phase3() {
+   input = init_input();
+   input.state.phase = 3;
+   return 0;
+}
+
+int init_suite_phase4() {
+   input = init_input();
+   input.state.phase = 4;
+   return 0;
+}
+
+
 
 /************* Test case functions ****************/
 
@@ -32,30 +66,18 @@ int clean_suite(void) { return 0; }
 //    CU_ASSERT_STRING_EQUAL("string #1", "string #2");
 // }
 
+// void test_test(void) {
+//   for (int i=0; i<6; i++) {
+//       CU_ASSERT(true);
+//     }
+// }
 
-
-void test_test(void) {
-  for (int i=0; i<6; i++) {
-      CU_ASSERT(true);
-    }
-}
-
-
-Input input;
-
-
-int init_suite_phase1() {
-   input = init_input();
-   input.state.phase = 1;
-   return 0;
-}
-
-int test_phase1_etape1() {
+void test_phase1_etape1() {
    input.state.etape = 1;
    Output output;
 
    input.ctr_sup = false;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -64,7 +86,7 @@ int test_phase1_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
    
    input.ctr_sup = true;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -73,19 +95,13 @@ int test_phase1_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
-int init_suite_phase2() {
-   input = init_input();
-   input.state.phase = 2;
-   return 0;
-}
-
-int test_phase2_etape1() {
+void test_phase2_etape1() {
    input.state.etape = 1;
    Output output;
 
 
    input.boutons.but_ann = true;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -94,7 +110,7 @@ int test_phase2_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
    input.boutons.but_ann = false;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -105,7 +121,7 @@ int test_phase2_etape1() {
 
    
    input.boutons.but_1 = true;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -114,7 +130,7 @@ int test_phase2_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
    input.boutons.but_1 = false;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -125,7 +141,7 @@ int test_phase2_etape1() {
 
    
    input.boutons.but_2 = true;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -134,7 +150,7 @@ int test_phase2_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
    input.boutons.but_2 = false;
-   output = controler();
+   output = controler(input);
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
@@ -143,44 +159,122 @@ int test_phase2_etape1() {
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
+void test_phase2_etape2() {
+   input.state.etape = 2;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase2_etape3() {
+   input.state.etape = 3;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase3_etape1() {
+   input.state.etape = 1;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase3_etape2() {
+   input.state.etape = 2;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase3_etape3() {
+   input.state.etape = 3;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase3_etape4() {
+   input.state.etape = 4;
+   Output output;
+
+
+   //TODO
+}
+
+void test_phase4_etape1() {
+   input.state.etape = 1;
+   Output output;
+
+
+   //TODO
+}
+
+
 /************* Test Runner Code goes here **************/
 
 int main ( void )
 {
    CU_pSuite pSuite = NULL;
-   CU_pTest pTest = NULL;
 
    /* initialize the CUnit test registry */
    if ( CUE_SUCCESS != CU_initialize_registry() )
       return CU_get_error();
 
-   /* add a suite to the registry */
-   pSuite = CU_add_suite( "test_test", init_suite, clean_suite );
-   if ( NULL == pSuite ) {
-      CU_cleanup_registry();
-      return CU_get_error();
-   }
-
+   /* test controler_phase1 */
    pSuite = CU_add_suite( "phase1", init_suite_phase1, clean_suite );
    if ( NULL == pSuite ) {
       CU_cleanup_registry();
       return CU_get_error();
    }
-
-   pTest = CU_add_test(pSuite, "phase1 etape1", test_phase1_etape1 );
-   if (NULL == pTest) {
+   if (NULL == CU_add_test(pSuite, "phase1 etape1", test_phase1_etape1 )) {
       CU_cleanup_registry();
       return CU_get_error();
    }
-
+   
+   /* test controler_phase2 */
    pSuite = CU_add_suite( "phase2", init_suite_phase2, clean_suite );
    if ( NULL == pSuite ) {
       CU_cleanup_registry();
       return CU_get_error();
    }
+   if (
+      NULL == CU_add_test(pSuite, "phase2 etape1", test_phase2_etape1 ) ||
+      NULL == CU_add_test(pSuite, "phase2 etape2", test_phase2_etape2 ) ||
+      NULL == CU_add_test(pSuite, "phase2 etape3", test_phase2_etape3 )
+   ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
 
-   pTest = CU_add_test(pSuite, "phase2 etape1", test_phase2_etape1 );
-   if (NULL == pTest) {
+   /* test controler_phase3 */
+   pSuite = CU_add_suite( "phase3", init_suite_phase3, clean_suite );
+   if ( NULL == pSuite ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+   if (
+      NULL == CU_add_test(pSuite, "phase3 etape1", test_phase3_etape1 ) ||
+      NULL == CU_add_test(pSuite, "phase3 etape2", test_phase3_etape2 ) ||
+      NULL == CU_add_test(pSuite, "phase3 etape3", test_phase3_etape3 ) ||
+      NULL == CU_add_test(pSuite, "phase3 etape4", test_phase3_etape4 )
+   ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+
+   /* test controler_phase4 */
+   pSuite = CU_add_suite( "phase4", init_suite_phase4, clean_suite );
+   if ( NULL == pSuite ) {
+      CU_cleanup_registry();
+      return CU_get_error();
+   }
+   if (NULL == CU_add_test(pSuite, "phase4 etape1", test_phase4_etape1 )) {
       CU_cleanup_registry();
       return CU_get_error();
    }

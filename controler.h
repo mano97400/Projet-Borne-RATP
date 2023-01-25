@@ -63,12 +63,36 @@ typedef struct Output{
     State state;
 }Output;
 
+/*
+
+    Subscriptions's amount definition
+
+*/
+
 #define MONTANT_SUB_1 1990
 #define MONTANT_SUB_2 7490
+
+/*
+
+    Initialization: à n'utiliser qu'une seul fois par lancement d'application pour ne pas surcharger la mémoire
+
+*/
 
 Boutons init_boutons();
 State init_state();
 Input init_input();
 Output init_output();
+
+/*
+
+    Controler's implementation
+
+*/
+
+Output controler(Input input);
+Output controler_phase1(Input input);
+Output controler_phase2(Input input);
+Output controler_phase3(Input input);
+Output controler_phase4(Input input);
 
 #endif
