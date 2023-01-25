@@ -1,0 +1,187 @@
+<?xml version="1.0" ?> 
+<?xml-stylesheet type="text/xsl" href="CUnit-Run.xsl" ?> 
+<!DOCTYPE CUNIT_TEST_RUN_REPORT SYSTEM "CUnit-Run.dtd"> 
+<CUNIT_TEST_RUN_REPORT> 
+  <CUNIT_HEADER/> 
+  <CUNIT_RESULT_LISTING> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> phase1 </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase1 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 94 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == input.state.phase </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> phase2 </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 118 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == input.state.phase </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 129 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == 2 </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 131 </LINE_NUMBER> 
+            <CONDITION> output.state.montant_tot == input.state.montant_tot </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 138 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == input.state.phase </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 139 </LINE_NUMBER> 
+            <CONDITION> output.state.etape == input.state.etape </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 140 </LINE_NUMBER> 
+            <CONDITION> output.state.montant_tot == input.state.montant_tot </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 149 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == 2 </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 151 </LINE_NUMBER> 
+            <CONDITION> output.state.montant_tot == input.state.montant_tot </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 158 </LINE_NUMBER> 
+            <CONDITION> output.state.phase == input.state.phase </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 159 </LINE_NUMBER> 
+            <CONDITION> output.state.etape == input.state.etape </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> phase2 etape1 </TEST_NAME> 
+            <FILE_NAME> test.c </FILE_NAME> 
+            <LINE_NUMBER> 160 </LINE_NUMBER> 
+            <CONDITION> output.state.montant_tot == input.state.montant_tot </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase2 etape2 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase2 etape3 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> phase3 </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase3 etape1 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase3 etape2 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase3 etape3 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase3 etape4 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> phase4 </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> phase4 etape1 </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+  </CUNIT_RESULT_LISTING>
+  <CUNIT_RUN_SUMMARY> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Suites </TYPE> 
+      <TOTAL> 4 </TOTAL> 
+      <RUN> 4 </RUN> 
+      <SUCCEEDED> - NA - </SUCCEEDED> 
+      <FAILED> 0 </FAILED> 
+      <INACTIVE> 0 </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Test Cases </TYPE> 
+      <TOTAL> 9 </TOTAL> 
+      <RUN> 9 </RUN> 
+      <SUCCEEDED> 7 </SUCCEEDED> 
+      <FAILED> 2 </FAILED> 
+      <INACTIVE> 0 </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Assertions </TYPE> 
+      <TOTAL> 48 </TOTAL> 
+      <RUN> 48 </RUN> 
+      <SUCCEEDED> 36 </SUCCEEDED> 
+      <FAILED> 12 </FAILED> 
+      <INACTIVE> n/a </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+  </CUNIT_RUN_SUMMARY> 
+  <CUNIT_FOOTER> File Generated By CUnit v2.1-3 - Wed Jan 25 13:54:18 2023
+ </CUNIT_FOOTER> 
+</CUNIT_TEST_RUN_REPORT>
