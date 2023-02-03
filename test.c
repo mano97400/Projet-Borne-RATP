@@ -164,6 +164,63 @@ void test_phase2_etape2() {
    input.state.etape = 2;
    Output output;
 
+   input.boutons.but_ann = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 2);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_ann = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+
+   
+   // input.boutons.but_1 = true;
+   // output = controler(input);
+   // CU_ASSERT(!output.recu);
+   // CU_ASSERT(!output.ctr_rch);
+   // CU_ASSERT(output.esp_out == 0);
+   // CU_ASSERT(output.state.phase == 2);
+   // CU_ASSERT(output.state.etape == 2);
+   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   // input.boutons.but_1 = false;
+   // output = controler(input);
+   // CU_ASSERT(!output.recu);
+   // CU_ASSERT(!output.ctr_rch);
+   // CU_ASSERT(output.esp_out == 0);
+   // CU_ASSERT(output.state.phase == input.state.phase);
+   // CU_ASSERT(output.state.etape == input.state.etape);
+   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+
+   
+   // input.boutons.but_2 = true;
+   // output = controler(input);
+   // CU_ASSERT(!output.recu);
+   // CU_ASSERT(!output.ctr_rch);
+   // CU_ASSERT(output.esp_out == 0);
+   // CU_ASSERT(output.state.phase == 2);
+   // CU_ASSERT(output.state.etape == 3);
+   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   // input.boutons.but_2 = false;
+   // output = controler(input);
+   // CU_ASSERT(!output.recu);
+   // CU_ASSERT(!output.ctr_rch);
+   // CU_ASSERT(output.esp_out == 0);
+   // CU_ASSERT(output.state.phase == input.state.phase);
+   // CU_ASSERT(output.state.etape == input.state.etape);
+   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
    //TODO
 }
