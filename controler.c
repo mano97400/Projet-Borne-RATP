@@ -44,6 +44,7 @@ Output controler_phase1(Input input) {
 
 Output controler_phase2(Input input) {
     Output output = init_output();
+    output.state = input.state;
     switch (input.state.etape) {
         case 1 : 
             if (input.boutons.but_ann) {
@@ -61,7 +62,7 @@ Output controler_phase2(Input input) {
             if (input.boutons.but_ann) {
                 output.state.etape = 1;
             }
-            else if (input.kbd_num > 0 && input.boutons.but_val) {
+            else if (input.kbd_num > 0) {
                 output.state.phase = 3;
                 output.state.etape = 1;
                 output.state.montant_tot = input.kbd_num;
@@ -88,18 +89,59 @@ Output controler_phase2(Input input) {
 
 Output controler_phase3(Input input) {
     Output output = init_output();
+    output.state = input.state;
     switch (input.state.etape) {
         case 1 : 
-            //TODO
+            if (input.boutons.but_ann) {
+                output.state.phase = 4;
+                output.state.etape = 1;
+                output.state.montant_tot = 0;
+            }
+            else if (input.boutons.but_1) {
+                output.state.phase = 3;
+                output.state.etape = 2;
+            }
+            else if (input.boutons.but_2) {
+                output.state.phase = 3;
+                output.state.etape = 3;
+            }
             break;
         case 2 :
-            //TODO
+            if (input.boutons.but_ann) {
+                output.state.phase = 3;
+                output.state.etape = 1;
+                output.esp_out = input.esp_in;
+            }
+            else if (input.esp_in >= input.state.montant_tot) {
+                output.state.phase = 3;
+                output.state.etape = 4;
+                output.esp_out = input.esp_in - input.state.montant_tot;
+                output.ctr_rch = true;
+                output.state.montant_tot = 0;
+            }
             break;
         case 3 : 
-            //TODO
+            if (input.tpe == SUCCESS) {
+                output.state.phase = 3;
+                output.state.etape = 4;
+                output.ctr_rch = true;
+                output.state.montant_tot = 0;
+            }
+            else if (input.tpe == FAILURE) {
+                output.state.phase = 3;
+                output.state.etape = 1;
+            } 
             break;
         case 4 : 
-            //TODO
+            if (input.boutons.but_1) {
+                output.state.phase = 4;
+                output.state.etape = 1;
+                output.recu = true;
+            }
+            else if (input.boutons.but_2) {
+                output.state.phase = 4;
+                output.state.etape = 1;
+            }
             break;
     }
     return output;
@@ -110,7 +152,10 @@ Output controler_phase4(Input input) {
     output.state = input.state;
     switch (input.state.etape) {
         case 1 : 
-            //TODO
+            if (!input.ctr_sup) {
+                output.state.phase = 1;
+                output.state.etape = 1;
+            }
             break;
     }
     return output;

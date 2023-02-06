@@ -91,15 +91,14 @@ void test_phase1_etape1() {
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
-   CU_ASSERT(output.state.phase == input.state.phase);
-   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.phase == 2);
+   CU_ASSERT(output.state.etape == 1);
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase2_etape1() {
    input.state.etape = 1;
    Output output;
-
 
    input.boutons.but_ann = true;
    output = controler(input);
@@ -178,99 +177,303 @@ void test_phase2_etape2() {
    CU_ASSERT(!output.recu);
    CU_ASSERT(!output.ctr_rch);
    CU_ASSERT(output.esp_out == 0);
-   CU_ASSERT(output.state.phase == 3);
-   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
    CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
    
 
+
+   input.kbd_num = 0;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
    
-   // input.boutons.but_1 = true;
-   // output = controler(input);
-   // CU_ASSERT(!output.recu);
-   // CU_ASSERT(!output.ctr_rch);
-   // CU_ASSERT(output.esp_out == 0);
-   // CU_ASSERT(output.state.phase == 2);
-   // CU_ASSERT(output.state.etape == 2);
-   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
-
-   // input.boutons.but_1 = false;
-   // output = controler(input);
-   // CU_ASSERT(!output.recu);
-   // CU_ASSERT(!output.ctr_rch);
-   // CU_ASSERT(output.esp_out == 0);
-   // CU_ASSERT(output.state.phase == input.state.phase);
-   // CU_ASSERT(output.state.etape == input.state.etape);
-   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
-   
-
-   
-   // input.boutons.but_2 = true;
-   // output = controler(input);
-   // CU_ASSERT(!output.recu);
-   // CU_ASSERT(!output.ctr_rch);
-   // CU_ASSERT(output.esp_out == 0);
-   // CU_ASSERT(output.state.phase == 2);
-   // CU_ASSERT(output.state.etape == 3);
-   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
-
-   // input.boutons.but_2 = false;
-   // output = controler(input);
-   // CU_ASSERT(!output.recu);
-   // CU_ASSERT(!output.ctr_rch);
-   // CU_ASSERT(output.esp_out == 0);
-   // CU_ASSERT(output.state.phase == input.state.phase);
-   // CU_ASSERT(output.state.etape == input.state.etape);
-   // CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
-
-   //TODO
+   input.kbd_num = 1500;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == 1500);
 }
 
 void test_phase2_etape3() {
    input.state.etape = 3;
    Output output;
 
+   input.boutons.but_ann = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 2);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
-   //TODO
+   input.boutons.but_ann = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   
+
+   input.boutons.but_1 = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == MONTANT_SUB_1);
+
+   input.boutons.but_1 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+
+   
+   input.boutons.but_2 = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == MONTANT_SUB_2);
+
+   input.boutons.but_2 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase3_etape1() {
    input.state.etape = 1;
    Output output;
 
+   input.boutons.but_ann = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 4);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == 0);
 
-   //TODO
+   input.boutons.but_ann = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   
+
+   input.boutons.but_1 = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 2);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_1 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+
+   
+   input.boutons.but_2 = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 3);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_2 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase3_etape2() {
    input.state.etape = 2;
    Output output;
 
+   input.boutons.but_ann = true;
+   input.esp_in = 1000;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 1000);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
-   //TODO
+   input.boutons.but_ann = false;
+   input.esp_in = 2000;
+   input.state.montant_tot = 2500;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+   
+   input.esp_in = 3000;
+   input.state.montant_tot = 2250;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(output.ctr_rch);
+   CU_ASSERT(output.esp_out == 750);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 4);
+   CU_ASSERT(output.state.montant_tot == 0);
+
+   input.esp_in = 0;
+   input.state.montant_tot = 1950;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase3_etape3() {
    input.state.etape = 3;
    Output output;
 
+   input.tpe = SUCCESS;
+   input.state.montant_tot = 2000;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 4);
+   CU_ASSERT(output.state.montant_tot == 0);
 
-   //TODO
+   
+   input.tpe = FAILURE;
+   input.state.montant_tot = 2000;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 3);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.tpe = WAITING;
+   input.state.montant_tot = 2000;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase3_etape4() {
    input.state.etape = 4;
    Output output;
 
+   input.boutons.but_1 = true;
+   output = controler(input);
+   CU_ASSERT(output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 4);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
-   //TODO
+   input.boutons.but_1 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+
+   
+   input.boutons.but_2 = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 4);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
+
+   input.boutons.but_2 = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 void test_phase4_etape1() {
    input.state.etape = 1;
    Output output;
 
+   input.ctr_sup = true;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == input.state.phase);
+   CU_ASSERT(output.state.etape == input.state.etape);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 
-   //TODO
+   input.ctr_sup = false;
+   output = controler(input);
+   CU_ASSERT(!output.recu);
+   CU_ASSERT(!output.ctr_rch);
+   CU_ASSERT(output.esp_out == 0);
+   CU_ASSERT(output.state.phase == 1);
+   CU_ASSERT(output.state.etape == 1);
+   CU_ASSERT(output.state.montant_tot == input.state.montant_tot);
 }
 
 
